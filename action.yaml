@@ -1,0 +1,27 @@
+name: Managed Build and Push Image to Registry
+description: Builds and pushes an image to a managed registry
+uses:
+  repository:
+    description: Name of the repository to push images to (based on ECR). Defaults to the Git repository's name.
+    required: false
+    default: ${{ github.repository }}
+  docker-context:
+    description: docker context. Passed to [docker build push action context input](https://github.com/docker/build-push-action#inputs). It should be relative to the root of the commit that triggered the action
+    required: false
+    default: './'
+  docker-file:
+    description: path to docker file relative to docker-context. Passed to [docker build push action file input](https://github.com/docker/build-push-action#inputs)
+    required: false
+    default: Dockerfile
+run:
+  using: "composite"
+  steps:
+    - name: Build and push image to ECR
+      uses: catalystsquad/action-build-push-image-ecr@v1
+      with:
+        aws-access-key-id: ${{ secrets.GH_USER_ACCESS_TOKEN }}
+        aws-secret-access-key: ${{ secrets.GH_USER_SECRET }}
+        aws-region: us-east-1
+        role-duration-seconds: 900
+        role-to-assume: arn:aws:iam::892765726487:role/GithubActionsRole
+        ecr-respository: ${{ inputs.repository }}
