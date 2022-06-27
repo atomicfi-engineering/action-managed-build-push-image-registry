@@ -7,8 +7,7 @@ uses:
     default: ${{ github.repository }}
   tag-versions:
     description: git tags to push, comma separated string such as `latest,v1.0.0`
-    required: false
-    default: latest,${{ github.event.release.tag_name }}
+    required: true
   docker-context:
     description: docker context. Passed to [docker build push action context input](https://github.com/docker/build-push-action#inputs). It should be relative to the root of the commit that triggered the action
     required: false
