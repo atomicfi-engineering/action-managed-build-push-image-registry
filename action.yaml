@@ -28,6 +28,7 @@ run:
         role-duration-seconds: 900
         role-to-assume: arn:aws:iam::892765726487:role/GithubActionsRole
         ecr-respository: ${{ inputs.repository }}
+        create-missing-repositories: false
         tag-versions: ${{ inputs.tag-versions }}
         docker-context: ${{ inputs.docker-context }}
         docker-file: ${{ inputs.docker-file }}
