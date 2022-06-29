@@ -63,8 +63,8 @@ jobs:
     steps:
       - uses: atomicfi/action-managed-build-push-image-to-registry@v1
         with:
-          repository: "yeethaw"
-          tag-version: ${{ some-job.output.version }}
+          repository: "repo-name"
+          tag-version: ${{ bump-version-job.output.version }}
           docker-context: "sub-folder"
           docker-file: "custom-name"
 ```
