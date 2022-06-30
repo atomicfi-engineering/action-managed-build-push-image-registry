@@ -19,7 +19,7 @@ Builds and pushes an image to a registry in a managed fashion
     # Default: ${{ github.repository }}
     repository: ""
 
-    # git tags to push, comma separated string such as `latest,v1.0.0`
+    # git tags to push, comma separated string such as `latest,v1.0.0`. Required.
     # Default:
     tag-versions: ""
 
