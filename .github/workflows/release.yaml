@@ -8,17 +8,9 @@ on:
     paths:
       - action.yaml
 jobs:
-  bump-version:
-    runs-on: ubuntu-latest
-    outputs:
-      tag: ${{steps.bump-version-tag.outputs.new_tag}}
+  release-action:
     steps:
-      - uses: actions/checkout@v3
+      - name: Release action
+        uses: atomicfi/action-release-action@v1.0.1
         with:
-          fetch-depth: "0"
-      - name: Bump version and push tag
-        id: bump-version-tag
-        uses: anothrNick/github-tag-action@1.36.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RELEASE_BRANCHES: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}  
