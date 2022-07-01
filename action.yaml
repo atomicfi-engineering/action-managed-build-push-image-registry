@@ -5,6 +5,9 @@ uses:
     description: Name of the repository to push images to (based on ECR). Defaults to the Git repository's name.
     required: false
     default: ${{ github.repository }}
+  tag-versions:
+    description: git tags to push, comma separated string such as `latest,v1.0.0`
+    required: true
   docker-context:
     description: docker context. Passed to [docker build push action context input](https://github.com/docker/build-push-action#inputs). It should be relative to the root of the commit that triggered the action
     required: false
@@ -25,3 +28,7 @@ run:
         role-duration-seconds: 900
         role-to-assume: arn:aws:iam::892765726487:role/GithubActionsRole
         ecr-respository: ${{ inputs.repository }}
+        create-missing-repositories: false
+        tag-versions: ${{ inputs.tag-versions }}
+        docker-context: ${{ inputs.docker-context }}
+        docker-file: ${{ inputs.docker-file }}
