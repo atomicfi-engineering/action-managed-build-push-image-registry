@@ -9,6 +9,7 @@ on:
       - action.yaml
 jobs:
   release-action:
+    runs-on: ubuntu-latest
     steps:
       - name: Release action
         uses: atomicfi/action-release-action@v1.0.1
