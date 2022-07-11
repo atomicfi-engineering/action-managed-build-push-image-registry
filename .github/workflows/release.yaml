@@ -5,8 +5,8 @@ on:
       - closed
     branches:
       - main
-    paths:
-      - action.yaml
+    paths-ignore:
+      - README.md
 jobs:
   release-action:
     runs-on: ubuntu-latest
