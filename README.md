@@ -5,7 +5,7 @@
 <!-- end title -->
 <!-- start description -->
 
-Builds and pushes an image to a registry in a managed fashion
+Builds and pushes an image to a registry in a managed fashion for internal use
 
 <!-- end description -->
 <!-- start contents -->
