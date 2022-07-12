@@ -1,6 +1,6 @@
 name: Managed Build and Push Image to Registry #
 description: Builds and pushes an image to a managed registry
-uses:
+inputs:
   repository:
     description: Name of the repository to push images to (based on ECR). Defaults to the Git repository's name.
     required: false
