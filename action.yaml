@@ -22,7 +22,7 @@ inputs:
   aws-secret-access-key:
     description: AWS secret access key
     required: true
-run:
+runs:
   using: "composite"
   steps:
     - name: Build and push image to ECR
