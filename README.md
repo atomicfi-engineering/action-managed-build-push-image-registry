@@ -33,6 +33,14 @@ Builds and pushes an image to a registry in a managed fashion for internal use
     # action file input](https://github.com/docker/build-push-action#inputs)
     # Default: Dockerfile
     docker-file: ""
+
+    # AWS access key id. Required.
+    # Default:
+    aws-access-key-id:
+
+    # AWS secret access key. Required.
+    # Default:
+    aws-secret-access-key:
 ```
 
 <!-- end usage -->
@@ -44,7 +52,8 @@ Builds and pushes an image to a registry in a managed fashion for internal use
 | **`tag-versions`** | git tags to push, comma separated string such as `latest,v1.0.0` |  | **true** |
 | **`docker-context`** | docker context. Passed to [docker build push action context input](https://github.com/docker/build-push-action#inputs). It should be relative to the root of the commit that triggered the action | `./` | **false** |
 | **`docker-file`** | path to docker file relative to docker-context. Passed to [docker build push action file input](https://github.com/docker/build-push-action#inputs) | `Dockerfile` |  **false** |
-
+| **`aws-access-key-id`**     | AWS access key id                   |             |   **true**   |
+| **`aws-secret-access-key`** | AWS secret access key               |             |   **true**   |
 <!-- end inputs -->
 <!-- start outputs -->
 <!-- end outputs -->
@@ -67,6 +76,8 @@ jobs:
           tag-version: ${{ bump-version-job.output.version }}
           docker-context: "sub-folder"
           docker-file: "custom-name"
+          aws-access-key-id: ${{ secrets.YOUR_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key:  ${{ secrets.YOUR_AWS_SECRET_ACCESS_KEY }}
 ```
 
 <!-- end examples -->
