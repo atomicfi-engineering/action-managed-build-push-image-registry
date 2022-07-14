@@ -25,6 +25,8 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Checkout (for sub-dirs) # See warning in this section of underlying docker build action documentation https://github.com/docker/build-push-action#git-context
+      uses: actions/checkout@v3
     - name: Build and push image to ECR
       uses: catalystsquad/action-build-push-image-ecr@v1
       with:
