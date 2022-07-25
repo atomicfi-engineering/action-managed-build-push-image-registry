@@ -1,4 +1,4 @@
-name: Managed Build and Push Image to Registry
+name: Managed Build and Push Image to Registry #
 description: Builds and pushes an image to a managed registry
 inputs:
   registry-repo-name:
