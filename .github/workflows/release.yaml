@@ -9,9 +9,10 @@ on:
       - action.yaml
 jobs:
   release-action:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Release action
-        uses: atomicfi/action-release-action@v1.0.1
+        uses: atomicfi/action-release-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}  
