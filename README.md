@@ -13,7 +13,7 @@ Builds and pushes an image to a registry in a managed fashion for internal use
 <!-- start usage -->
 
 ```yaml
-- uses: atomicfi/action-managed-build-push-image-registry@undefined
+- uses: atomicfi-engineering/action-managed-build-push-image-registry@undefined
   with:
     # Name of the registry repository to push images to (based on ECR). Defaults to the Git repository's name.
     # Default: ${{ github.repository }}
@@ -70,7 +70,7 @@ jobs:
   build-push-image:
     runs-on: ubuntu-latest
     steps:
-      - uses: atomicfi/action-managed-build-push-image-registry@v1
+      - uses: atomicfi-engineering/action-managed-build-push-image-registry@v1
         with:
           registry-repo-name: "repo-name"
           tag-version: ${{ bump-version-job.output.version }}

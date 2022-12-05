@@ -13,6 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Release action
-        uses: atomicfi/action-release-action@v1
+        uses: atomicfi-engineering/action-release-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}  
